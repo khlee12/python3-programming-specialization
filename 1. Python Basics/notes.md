@@ -120,16 +120,51 @@ input always return a string.
 ## 2. Turtle Graphics
 
 ### Objects and Turtle Graphcs
+To understand the use of loops as a way of repeating actions
+To understand flow control and iteration through the for loop
+To understand the idea of sequence (or list) of numbers
+To introduce the idea of looking for patterns when problem solving
+To distinguish between instances, attributes, and methods
 
 ### First Turtle Program
+An Object have
+- various of methods: things they can do
+- various of attributes(properties): states to describe them
+
+import statement loads module. We can use Types that module brings using module.<Type1>
 
 ### Instances: A Herd of Turtles
+We can have more than one instance of a class.
+
+Object-Oriented Concepts
+- User defined class
+- instances
+- Attributes(Instance variables)
+- Methods
+
+The only difference between a method invocation and other function calls is that the object instance itself is also passed as a parameter. 
+Thus alex.forward(50) moves alex, while tess.forward(50) moves tess.
 
 ### Repetition with a For Loop
+for loop with `range` function:  specify how many times the contents inside of the for loop will execute.
+enumerate..
 
 ### More Turtle Methods
 
 ### Importing Modules
+some functions are already in Python core: such as len(). They are part of a standard library of modules.
+A module is a code file that defines some functions that can be used by other programs.
+Before you can invoke a function that's from a standard library module, 
+you need to tell the Python interpreter to make it available and that's what the import statement does.
+
+```
+import random -> make random module available
+random.random() -> use random. to refer random module every time
+
+from random import random, randrange
+random()
+put the function directory into the namespace, so we don't have to keep referring to the module they came from
+```
 
 ### Conclusion
 
@@ -179,10 +214,13 @@ Statements
   - decrement
 - while statement
 - for statement
+do some lines for multiple times(iteration)
 - if statement
 - import statement
 - print statement
-  
+
+Instances
+
 
 
 
@@ -193,5 +231,3 @@ Data Structure
 - Set
 ...
 
-Algorithms
-- Loop
