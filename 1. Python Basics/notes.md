@@ -39,12 +39,48 @@ the same as `//` example above
 - +=
 - -=
 
-Parentheses > Exponentiation > Multiplication/Division > Addition/Subtraction
+Precedence of Operators
+Parentheses > Exponentiation(`**`) > Multiplication/Division(`*, /, //, %`) > Addition/Subtraction(`+, -`) > relational(`==, !=, <, <=, >, >=`)> logical (`not`) > logical(`and`) > logical(`or`)
 operators with the same precedence are evaluated from left-to-right, except exponentiation operator `**`.
 ```
 2**3**2 # when there's no parentheses and the operator priority level are the same, 
         # the right-most ** operator gets done first
 ```
+
+- index operator
+An index specifies a member of an ordered collection
+indexing allows us to access a specific element of the sequence.
+[i] ,i refers to the index from 0 to length of string or list, from left to right,
+or index from -1 which is the rightmost index, from right to left.
+
+*memo: For indexing from right to left, it might seem natural to do the analgous thing and start at -0. Unfortunately, -0 is the same as 0, so s[-0] can’t be the last item. 
+
+[] can be used in 1) creating a list, 2) indexing.
+indexing requires referencing an already created list while simply creating a list does not.
+
+- slice operator
+multiple choice of an ordered collection.
+[i:j], elements from i-th element to j-1-th element
+[i:], everything from i-th element
+[:j], everything from start to j-1-th element
+[:], select everything of an ordered collection
+
+relational operator
+- ==
+- !=
+- <
+- <=
+- >
+- >=
+logical operator
+- and
+- or
+- not
+-----
+- in
+- not in (returns the logical opposite result of `in`)
+
+
 ### Function Calls
 One type of expression: Function call expression.
 Function: take inputs, and does some work, then return the value
@@ -133,6 +169,8 @@ An Object have
 
 import statement loads module. We can use Types that module brings using module.<Type1>
 
+Attributes do not need to be pre-declared; any code can add a new attribute to an instance just by assigning a value to it.
+
 ### Instances: A Herd of Turtles
 We can have more than one instance of a class.
 
@@ -166,24 +204,37 @@ random()
 put the function directory into the namespace, so we don't have to keep referring to the module they came from
 ```
 
+import module syntax
+- `import morecode`: import everything in morecode.py
+- `import morecode as mc`: give the imported module an alias
+- `from morecode import function1`: import SOME of the functionality from a module.
+
+```
+import turtle
+t = turtle.Turtle() # from the turtle module, find Turtle Class
+```
+
 ### Conclusion
 
 ## 3. The Way of the Programmer
 
 ### Introduction Debugging
+objective:
+distinguish three types of errors:
+- Syntax errors,
+- Runtime errors,
+- Semantic errors
 
 ### Syntax, Runtime, and Semantic Errors
+syntax error: python interpreter can not parse it
+runtime error: interpreter can parse it, but during the running of the program, some illegal operation happens
+semantic error: program was able to run all the way to completion, but produce the wrong thing
 
-### Know Your Error Messages
+## Week2
+- identify whether object is mutable or immutable
+- recognize if the method is mutate original object or make a copy of it
 
-### Incremental Programming
-
-### Common Errors
-
-### Conclusion Debuging
-
-
-
+Lists can be changed(or mutated) while strings are immutable
 
 ```
 x = 1+2+3 is a statement
@@ -206,6 +257,12 @@ Expressions: (expression has value and type)
 * Use Operators to combine expressions
 - input expression
   - input()
+- boolean expression 
+expression that evaluates to a boolean value.
+1) literal expression (True)
+2) comparison expression　(a==b)
+3) logical expression (a and b)
+4) in & not in
 
 Statements
 - assignment statement
@@ -213,11 +270,16 @@ Statements
   - increment
   - decrement
 - while statement
-- for statement
+- for statement (see iteration part of sequences)
 do some lines for multiple times(iteration)
-- if statement
+- if statement(conditional execution)
+
+
 - import statement
 - print statement
+
+
+
 
 Instances
 
@@ -226,8 +288,86 @@ Instances
 
 Data Structure and Algorithms
 Data Structure
-- Array
+0) build-in primitive (or atomic) data types
+int
+str
+bool
+
+1) Sequences (an ordered collection)
+- String
+sequential collections of characters.
+- Lists
+sequential collection of Python data values. elements of a list can have any type and for any one list.
+Only item that can added to list, is a list.
+
+- Tuples
+like a list, is a sequence of items of any type. 
+Key difference between lists and tuple is that a tuple is immutable.
+
+- related operations:
+1) len()
+2) indexing
+3) slicing
+4) concatenation
+use `+` operator concat two sequence items which have the same data type.
+after concatenation, you will get a *new list*, (not a list with two sublists)
+memo: do not adding different types together.
+5) repetition
+use `*` operator repeats the items in a list for a given number of times
+```
+arr = [0] * 4
+```
+6) count()
+find out how many times an element appears in the ordered collection(stings/lists)
+```
+<strings/lists>.count(<element_want_to_count>)
+```
+7) index()
+finds where an item is. returns the *leftmost* index where the argument is found.
+if the item does not exist in the ordered collections, index() would return *error*.
+```
+<strings/lists>.count(<element_want_to_find>)
+```
+8) split()
+take a string input, split string into words by space(if no argument), and return a list.
+if there's an argument(or delimiter), it specifies what we actually want to split along.
+```
+<strings>.split()
+```
+9) join()
+use seperator to join the list with the glue between each of the elements.
+```
+<glue_word or seperator>.join(<lists>)
+```
+
+10) iteration
+  - for statement
+  ```
+  for <loop_var_name> in <sequence>:
+    # do something
+  ```
+  - accumulator pattern (accumulate value using accumulator variable)
+  ```
+  1) initialization accumulator
+  2) iterating:
+    3) updating accumulator
+  ```
+  - range function
+  ```
+  range(5) produces a sequence: [0,1,2,3,4] # rangefunction returns an object that acts like the list.
+  use list() to cast to a real list
+  ```
+  ```
+  for i in range(5):
+    # do something
+  ```
+  - enumerate function
+*items are produced as needed rather than all produced in advance.
+
+Collections
 - HashTable
 - Set
 ...
 
+Algorithms
+Sequence Mutation
