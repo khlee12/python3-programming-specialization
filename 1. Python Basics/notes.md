@@ -273,8 +273,8 @@ Statements
 - for statement (see iteration part of sequences)
 do some lines for multiple times(iteration)
 - if statement(conditional execution)
-
-
+  - binary selection
+  - unary selection
 - import statement
 - print statement
 
