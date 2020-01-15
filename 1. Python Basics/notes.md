@@ -369,5 +369,97 @@ Collections
 - Set
 ...
 
-Algorithms
-Sequence Mutation
+
+11) mutation
+- mutability
+mutable: could change the value of an object
+immutable: could *not* change the value of an object
+
+*Lists are Mutable.* This means we can change an item in a list by accessing it directly using the *indexing operator*
+
+*Strings are Immutable.* You are now allowed to modify the individual characters in the collection.
+
+*Tuples are Immutable.* Tuples are like immutable lists. That's the key difference between lists and tuples.
+
+- mutate sequence object
+change value of object
+1) make a modified copy
+```
+greeting = "Hello, World"
+new_gretting = ["J"]+greeting[1:]
+```
+2) modify original object
+```
+fruit = ["banana", "apple", "cherry"]
+fruit[0] = "pear"
+```
+
+12) deletion
+- del statement
+remove element from a list using it's position(index)
+
+13) references
+```
+a = "banana"
+b = "banana"
+with strings, 
+in one case, a and b refer to two different string objects that have the same value.
+in the other case, the Python interprer finds out the same string "banana" and make a and b both point to it.
+We have is operator to check and tell us if a and b point to the same object(alias)
+print(a is b) -> True
+
+a = [81,82,83]
+b = [81,82,83]
+print(a is b) -> False
+print(a == b) -> True
+with lists, a is not alias to b.
+```
+
+14) alias
+recognize two different variables are aliases for the same object, and 
+predict whether an operation on one of those variables is going to case an impact on the contents of the other one.
+
+```
+a = [81,82,83]
+b = [81,82,83]
+b=a # a and b are pointing to the same object
+```
+
+15) cloning lists
+```
+a = [81,82,83]
+b = [:]
+```
+```
+x = ["dogs", "cats", "birds", "reptiles"]
+y = x
+x += ['fish', 'horses'] -> modify original list
+y = y + ['sheep'] -> create a modified copy list
+```
+
+16) list methods
+- append()
+add an value to the end of list
+- insert()
+insert an value to the list by index
+- count()
+count number of values appeared
+- index()
+return index of value
+- reverse()
+reverse the list
+- sort()
+- remove()
+remove element by value
+- pop()
+remove last element of the list
+
+17) string methods
+
+
+
+
+
+
+
+
