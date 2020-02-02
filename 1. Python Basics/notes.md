@@ -456,7 +456,71 @@ remove last element of the list
 
 17) string methods
 
+method on lists
+- append()
+- insert()
+- pop()
+- sort() # modifies a list to be sorted
+- reverse() # modifies a list to be in reverse order
+- index() # non-mutating methods
+- count() # non-mutating methods
+- remove() # removes the first occurrence of item
 
+append & concat
+
+add element to the end of list
+- append & concat
+origin_list = [1,2,3]
+append: origin_list.append("cat") # modify original list
+concat: origin_list = origin_list + ["cat"] # create a modified copy
+
+origin_list = [1,2,3]
+new_list = origin_list # alias
+origin_list += ["cat"] # modify original list
+origin_list = origin_list + ["cat"] # create a modified copy
+# unlike x+=1 is equal to x=x+1, for mutated lists, those statements are not exactly equal
+# dont use += for list, which is confusing
+# use concat or append
+
+
+id()
+
+non-mutating methods on strings
+remember, strings can not be changed, methods generates modified copies based on original.
+- upper()
+- lower()
+- count()
+- strip()
+only remove blank of start/end of a string
+- replace()
+all methods on strings are non-mutating.
+They leave original string alone and generate new strings.
+- index()
+- format()
+
+format method on string
+print("Hello {}. Your score is {}.".format(name, score))
+means, you can do substitution at {} place, and we have positional replacements as parameter of format.
+
+how many decimal points use in numbers
+calculation = '¥{:.2f} discounted by {}% is ¥{:.2f}'.format(origin_price, discount, new_price)
+for {:.2f}:
+  f: this is float number
+  .2: have two digits after the decimal point
+*for default, it will use three digits after the decimal point.
+
+'format_string {substitution_pattern}'.format(<positional replacements>)
+tuples&strings, methods never mutates them. only return a modified copy
+
+accumulating lists and strings
+Not needed??check other accumulate notes
+start from empty list/string, and accumulate it inside iterate use concatenation and reassignment. at the end, you get an accumulated list/string.
+
+way of the programmer
+- when it doubt, make a reference diagram
+
+for <iterator_var> in <sequence_var>:
+  <accumulator_var>+=1
 
 
 
