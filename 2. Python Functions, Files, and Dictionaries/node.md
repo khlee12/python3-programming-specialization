@@ -10,6 +10,18 @@ but if file is large, it would be a problem for your computer to handle all of t
 - <file_variable>.readline() # get next line of strings
 - <file_variable>.readlines() # get list of strings
 - <file_variable>.write(<astring>) # add a string to the end of the file
+- iterate lines over a file
+  ```
+  for line in <file_variable>.readlines():
+    # do something
+  ```
+  ```
+  for line in <file_variable>:
+    # do something
+    # python provides a built-in way to iterate through the contents of a file one line at a time,
+    # without first reading them all into a list.
+  ```
+
 - use with to open files
 ```
 with open('<filename>','r') as md: # == md = open('<filename>', 'r')
@@ -43,7 +55,48 @@ for olympian in olympians:
   row_string = '"{}", "{}", "{}"'.format(*olympian) # to print multiple value, should change variable type to tuple
   row_string = '"{}", "{}", "{}"'.format(olympian) # -> "('John Aalberg', 31, 'Cross Country Skiing, 15KM')", "", ""
 ```
-2) 
+
+# 2. Dictionaries
+Collection of items, unordered, kind of a bag of key-value pairs.
+## 1) create dictionary
+```
+dict = {}
+dict['one'] = 'uno
+```
+## 2) delete key-value pair from dictionary
+```
+del dict{<key_name>}
+```
+## 3) reset value of ke
+```
+dict{<key_name>} = <new_value>
+```
+## 4) number of key-value pairs
+```
+len(dict)
+```
+## 5) methods
+method | memo
+--|--
+dict.keys() or list(dict.keys()) | use for loop to iterate every key without any guarantee of order
+dict.values() or list(dict.values()) | 
+dict.items() or list(dict.items()) | key-value pairs as tuples
+if <key_name> in dict | if key exist in dictionary
+dict.get(<key_name>) | return value of key, *if key does not exist, returns None*, which is different from simple dict[<key_name>]
+dict.get(<key_name>, <value>) | if key exist, return the value, if not exist, use <value> as its value(which is adding key-value pair) and return this <value>
+
+## 6) alias
+```
+dict = {'right': 'nothing'}
+alias = dict # pointing to the same value(dictionary)
+alias['right'] = 'left'
+print(dict['right']) # -> changes value of dict
+# -> print 'left'
+```
+
+
+
+
 
 
 
