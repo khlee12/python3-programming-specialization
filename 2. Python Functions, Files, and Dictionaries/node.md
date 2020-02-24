@@ -67,7 +67,7 @@ dict['one'] = 'uno
 ```
 del dict{<key_name>}
 ```
-## 3) reset value of ke
+## 3) reset value of key
 ```
 dict{<key_name>} = <new_value>
 ```
@@ -84,16 +84,24 @@ dict.items() or list(dict.items()) | key-value pairs as tuples
 if <key_name> in dict | if key exist in dictionary
 dict.get(<key_name>) | return value of key, *if key does not exist, returns None*, which is different from simple dict[<key_name>]
 dict.get(<key_name>, <value>) | if key exist, return the value, if not exist, use <value> as its value(which is adding key-value pair) and return this <value>
+<key_name> in dict | check if key exist
 
-## 6) alias
+.keys(), .values(), .items() don't return actual lists, they return objects that produce the items one at a time.
+
+## 6) alias and copy
+Dictionary is mutable, you need to be aware of aliasing.
 ```
 dict = {'right': 'nothing'}
 alias = dict # pointing to the same value(dictionary)
 alias['right'] = 'left'
 print(dict['right']) # -> changes value of dict
 # -> print 'left'
+
+acopy = dict.copy()
+acopy['right'] = 'left' # does not change original dict variable
 ```
 
+## 7) accumulation
 
 
 
