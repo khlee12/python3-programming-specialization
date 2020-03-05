@@ -130,7 +130,7 @@ Variables are local, but objects are not.
 def double(y):
   y = 2*y
 
-def changeit(lst):
+def changeit(lst): -> lst also is a local variable
   lst[0] = 'Michigan'
   lst[1] = 'Wolverines'
 
@@ -146,8 +146,27 @@ print(mylst) # -> ['Michigan', 'Wolverines', 'are', 'awesome'], changed
 ```
 If functions never ever have side effects, that's a style called functional programming.
 
+When a variable name is used on the left hand side of an assignment statement Python creates a local variable.
+When a local variable has the same name as a global variable we say that the local shadows the global. A shadow means that the global variable cannot be accessed by Python because the local variable will be found first. 
+
+If you really want to change the value of a global variable inside a function, you can can do it by explicitly declaring the variable to be global, 
+```
+def powerof(x,p):
+	    global power  # a really...
+	    power = p     # ...bad idea, but valid code -> not recommended
+	    y = x ** power
+	    return y
+	
+power = 3
+result = powerof(10,2)
+```
+local variable is a temporary variable that is **only known (only exists) in the function** it is defined in.
+
 ## Return multiple values
--> Tuple Packing and Unpacking
+In Python, if a parameter passes a mutable value, it becomes the alias for the original object.
+So the mutation to the object inside the function lives on if there is some other variable outside the function that also is an alias for the same list.
+
+- Tuple Packing and Unpacking
 ```
 def info(id):
   return (name, age) # packing
@@ -165,6 +184,19 @@ for key,value in dict.items(): # key, value are unpacking
   # do something
 ```
 
+You can use the same coding pattern to avoid confusing side effects with sharing of mutable objects. To do that, explicitly make a copy of an object and pass the copy in to the function. Then return the modified copy and reassign it to the original variable if you want to save the changes. The built-in list function, which takes a sequence as a parameter and returns a new list, works to copy an existing list. For dictionaries, you can similarly call the dict function, passing in a dictionary to get a copy of the dictionary back as a return value.
+
+```
+1	def changeit(lst):
+2	   lst[0] = "Michigan"
+3	   lst[1] = "Wolverines"
+4	   return lst
+5	
+6	mylst = ['106', 'students', 'are', 'awesome']
+7	newlst = changeit(list(mylst))
+8	print(mylst)
+9	print(newlst)
+```
 
 
 
