@@ -167,6 +167,7 @@ In Python, if a parameter passes a mutable value, it becomes the alias for the o
 So the mutation to the object inside the function lives on if there is some other variable outside the function that also is an alias for the same list.
 
 - Tuple Packing and Unpacking
+tuples, a sequence type that works just like lists except that they are immutable.
 ```
 def info(id):
   return (name, age) # packing
@@ -180,7 +181,7 @@ print(add(*z)) # use * to unpack z
 print(add(z)) # cause an error, because z was treated as one variable which passed to x, and have nothing pass to y
 
 dict = {}
-for key,value in dict.items(): # key, value are unpacking
+for key,value in dict.items(): # unpacking into iterator variables:key, value
   # do something
 ```
 
