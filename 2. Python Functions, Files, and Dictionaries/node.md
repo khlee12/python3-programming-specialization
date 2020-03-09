@@ -199,5 +199,27 @@ You can use the same coding pattern to avoid confusing side effects with sharing
 9	print(newlst)
 ```
 
+* Lister loop: it is not known at the beginning of the iteration, how many times the code block needs to be executed, we use listener loop.
+
+## Optional Parameters
+```
+def f(x, y=3, z=7): # y and z are optional parameters which can be specified or omitted. the formal parameter is bound to a default value. When the optional parameter is included, then the formal parameter is bound to a default value.
+
+    print(x)
+    print(y)
+    print(z)
+
+f(3)
+f(3,5)
+f(3,z=5)
+f(3,8,1)
+```
+
+## Lambda Functions
+lambda expression `lambda arguments:expression` yields a function object. This unnamed object behaves just like the function object constructed below.
+```
+def fname(arguments):
+    return expression
+```
 
 
