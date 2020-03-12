@@ -222,4 +222,34 @@ def fname(arguments):
     return expression
 ```
 
+# Sorting
+- sequence_object.sort()
+sort inplace, do not return anything. But can not use to immutable sequence such as strings
+```
+"Apple".sort() -> error
+```
+- sorted(sequence_object)
+do not change the original object, return new sorted object. Also can use to strings.
+```
+sorted('apple') -> ['a', 'e','l','p','p']
+```
+USE sorted INSTEAD OF sort
+
+## sorted()
+- reverse parameter
+```
+arr = ['apple', 'peach', 'cherry']
+print(sorted(arr, reverse=True))
+print(sorted(arr, reverse=False))
+```
+- key parameter
+The value of `key` parameter is a function. Using key parameter is passing a function to a function.
+
+
+
+
+
+
+
+
 
