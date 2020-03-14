@@ -221,6 +221,9 @@ lambda expression `lambda arguments:expression` yields a function object. This u
 def fname(arguments):
     return expression
 ```
+- when to use lambda VS function?
+simple -> lambda, complicated -> function
+
 
 # Sorting
 - sequence_object.sort()
@@ -243,7 +246,42 @@ print(sorted(arr, reverse=True))
 print(sorted(arr, reverse=False))
 ```
 - key parameter
+If you want to sort things in some order other than the "natural" or its reverse, you can provide an additional parameter, the key parameter.
 The value of `key` parameter is a function. Using key parameter is passing a function to a function.
+```
+L1 = [1, 7, 4, -2, 3]
+
+def absolute(x):
+    if x >= 0:
+        return x
+    else:
+        return -x
+
+L2 = sorted(L1, key=absolute)
+print(L2)
+
+#or in reverse order
+print(sorted(L1, reverse=True, key=absolute)) # --> parameter value is a function name/object
+# when we pass the function object, it is NOT automatically invoked. 
+# Instead, it is just bound to the formal parameter key of the function sorted.
+# What the sorted function does is call that key function once for each item in the list.
+# Then rearranges the original items in order of the values returned by key function
+```
+The key parameter provides a function that says *how* to sort them.
+
+- sorting a dictionary
+```
+d = {'A':2,'B':2,'C':1,'D':4,'E':2,'F':1,'I':2}
+y = sorted(d.keys(), key=lambda k:d[k], reverse=True)
+y = sorted(d, key=lambda k:d[k])
+```
+
+- sorting a tuple
+```
+fruits = ['peach', 'kiwi', 'apple', 'blueberry', 'papaya', 'mango', 'pear']
+new_order = sorted(fruits, key=lambda fruit_name: (len(fruit_name), fruit_name))
+```
+
 
 
 
