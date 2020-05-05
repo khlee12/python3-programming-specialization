@@ -108,6 +108,53 @@ cols = list(map(list, zip(*grid)))
 # map(list, zip(*grid)) = [[3, 1], [4, 2], [5, 3]]
 # list(map(list, zip(*grid)) = [[3, 1], [4, 2], [5, 3]]
 ```
+# Internet
+**URLs**
+{protocol}://{server}:{port}/{path}?{arguments}
+- protocal: how to communicate with that remote server
+- server: where to fetch something from
+- arguments: what to fetch from remote server
 
+- **Host(server) names**
+host name is a name for the specific computer you're communicating with.
 
+- **IP(Internet Protocol) Addresses**
+>> unique identifier
+can reuse when the computer disconnects
+>> domain names map to IP addresses
+domain names are stable, IP addresses not(每次access domain，有可能access不同的server)
+
+- **DNS**
+Domain Name System, mapping from domain names to IP addresses.
+
+# REST APIs
+- REST
+REpresentational State Transfer.
+- API
+Application Programming Interface
+- URL structure for REST APIs
+1. the base URL
+2. a `?` character
+3. one or more key-value pairs, formatted as key=value pairs and separated by the `&` character
+
+## Get response
+```
+import requests
+page = requests.get(<url>)
+page.text # contents
+page.url # full url
+page.json # converts the text into a python list or dictionary
+page.status_code
+page.headers
+page.history # a list of previous responses, if there were redirects.
+```
+## request a page
+```
+import requests
+base_url = "https://google.com/search"
+d = {'q': '"violins and guitars"', 'tbm': 'isch'}
+results = requests.get(base_url, params=d)
+print(results.url)
+# https://google.com/search?q=%22violins+and+guitars%22&tbm=isch
+```
 
